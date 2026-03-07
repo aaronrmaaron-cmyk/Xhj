@@ -8,17 +8,14 @@
 
     <meta name="google-site-verification" content="wtU5WV-Z6hfrwpa1gj1rl78zFkwPNlo37OyVQlVs-Z8" />
 
-    <title>Crée ta propre poop - 5€ seulement</title>
-    <meta name="description" content="Transforme tes photos en Poop Art avec Aaron.">
+    <title>Crée ta propre figurine de toi poop - 5€</title>
+    <meta name="description" content="Transforme tes photos en figurines Poop Art avec Aaron.">
 
     <style>
         :root { --main-color: #8B4513; --bg-color: #fdf2e9; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg-color); color: #5d4037; margin: 0; padding: 20px; text-align: center; }
         .container { max-width: 550px; margin: auto; background: white; padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid var(--main-color); }
-        
-        /* STYLE POUR TON IMAGE DANS LA PAGE */
         .promo-image { width: 100%; border-radius: 15px; margin-bottom: 20px; border: 3px solid var(--main-color); }
-        
         .tuto-detail { text-align: left; background: #efebe9; padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 6px solid var(--main-color); }
         .tuto-step { margin-bottom: 12px; font-size: 0.95em; line-height: 1.5; border-bottom: 1px dotted #ccc; padding-bottom: 8px; }
         label { display: block; text-align: left; margin: 15px 0 5px 0; font-weight: bold; }
@@ -30,18 +27,17 @@
 <body>
 
     <div class="container" id="main-form">
-        <h1>💩 Crée ta propre poop</h1>
+        <h1>💩 Crée ta propre figurine de toi poop</h1>
         
-        <img src="https://raw.githubusercontent.com/aaronrmaaron-cmyk/Xhj/main/file_0000000001a872439b9960bed3657a20.jpg" alt="Exemple Poop Art" class="promo-image">
+        <img src="https://raw.githubusercontent.com/aaronrmaaron-cmyk/Xhj/main/file_0000000001a872439b9960bed3657a20.jpg" alt="Exemple Figurine" class="promo-image">
 
         <p style="font-size: 1.2em; font-weight: bold;">Prix : 5 €</p>
         
         <div class="tuto-detail">
-            <h3 style="margin-top:0; color:var(--main-color);">📖 GUIDE DE CRÉATION :</h3>
-            <div class="tuto-step"><b>1. La Photo :</b> Prends-toi en photo.</div>
-            <div class="tuto-step"><b>2. ChatGPT :</b> Demande-lui : <i>"Transforme-moi en Poop Art"</i>.</div>
-            <div class="tuto-step"><b>3. Lien :</b> Copie l'URL de l'image sur ChatGPT.</div>
-            <div class="tuto-step"><b>4. Envoi :</b> Colle le lien ci-dessous avec tes infos.</div>
+            <h3 style="margin-top:0; color:var(--main-color);">📖 GUIDE DE COMMANDE :</h3>
+            <div class="tuto-step"><b>1. Ta photo :</b> Prépare une photo de toi.</div>
+            <div class="tuto-step"><b>2. ChatGPT :</b> Demande-lui : <i>"Transforme-moi en figurine Poop Art"</i>.</div>
+            <div class="tuto-step"><b>3. Envoi :</b> Colle le lien de l'image ici avec tes infos.</div>
         </div>
 
         <form id="my-form" action="https://formspree.io/f/xjgakkba" method="POST">
@@ -55,13 +51,13 @@
             <input type="text" name="Adresse" required placeholder="Rue, Ville, Code Postal">
             <label>📱 Téléphone</label>
             <input type="tel" name="Telephone" required>
-            <button type="submit" id="submit-btn">Valider ma commande (5 €)</button>
+            <button type="submit" id="submit-btn">Commander ma figurine (5 €)</button>
         </form>
     </div>
 
     <div class="container" id="success-screen">
-        <h1 style="color: var(--main-color);">Demande envoyée !</h1>
-        <p>Tu vas recevoir un email d'Aaron pour le paiement BoursoBank et la livraison.</p>
+        <h1 style="color: var(--main-color);">Commande reçue !</h1>
+        <p>Regarde tes mails, Aaron va te contacter pour le paiement et la livraison.</p>
     </div>
 
     <script>
@@ -70,7 +66,7 @@
           event.preventDefault();
           var status = document.getElementById("submit-btn");
           var data = new FormData(event.target);
-          status.innerHTML = "Envoi en cours...";
+          status.innerHTML = "Envoi...";
           fetch(event.target.action, {
             method: form.method,
             body: data,
@@ -80,8 +76,8 @@
               document.getElementById('main-form').style.display = 'none';
               document.getElementById('success-screen').style.display = 'block';
             } else {
-              alert("Erreur. Recommence.");
-              status.innerHTML = "Valider ma commande (5 €)";
+              alert("Erreur réseau.");
+              status.innerHTML = "Commander ma figurine (5 €)";
             }
           });
         }
