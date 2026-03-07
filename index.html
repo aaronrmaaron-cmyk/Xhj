@@ -9,61 +9,63 @@
     <meta name="google-site-verification" content="wtU5WV-Z6hfrwpa1gj1rl78zFkwPNlo37OyVQlVs-Z8" />
 
     <title>Crée ta propre figurine de toi poop - 5€</title>
-    <meta name="description" content="Transforme tes photos en figurines personnalisées Poop Art. Aaron crée ton avatar 3D unique pour seulement 5€. Livraison incluse.">
+    <meta name="description" content="Transforme tes photos en figurines personnalisées Poop Art. Ton avatar 3D unique pour seulement 5€.">
 
     <style>
         :root { --main-color: #8B4513; --bg-color: #fdf2e9; --text-color: #5d4037; }
         body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg-color); color: var(--text-color); margin: 0; padding: 20px; text-align: center; }
-        .container { max-width: 550px; margin: auto; background: white; padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid var(--main-color); position: relative; }
-        
-        /* STYLE POUR TON IMAGE */
+        .container { max-width: 550px; margin: auto; background: white; padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid var(--main-color); }
         .promo-image { width: 100%; border-radius: 15px; margin-bottom: 25px; border: 3px solid var(--main-color); }
-        
         h1 { color: var(--main-color); font-size: 1.8em; margin-bottom: 5px; }
         .price-tag { font-size: 1.5em; font-weight: bold; margin: 0 0 25px 0; color: #a1887f; }
         .tuto-detail { text-align: left; background: #efebe9; padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 6px solid var(--main-color); }
         .tuto-step { margin-bottom: 12px; font-size: 0.95em; line-height: 1.5; border-bottom: 1px dotted #ccc; padding-bottom: 8px; }
         label { display: block; text-align: left; margin: 15px 0 5px 0; font-weight: bold; }
         input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; box-sizing: border-box; font-size: 1em; }
-        button { width: 100%; padding: 15px; margin-top: 25px; border-radius: 12px; border: none; background: var(--main-color); color: white; font-weight: bold; font-size: 1.1em; cursor: pointer; transition: 0.2s; }
-        #success-screen { display: none; }
+        button { width: 100%; padding: 15px; margin-top: 25px; border-radius: 12px; border: none; background: var(--main-color); color: white; font-weight: bold; font-size: 1.1em; cursor: pointer; }
+        #success-screen { display: none; background: #1a1a1a; color: white; }
+        .mail-icon { font-size: 50px; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
     <div class="container" id="main-form">
         <h1>💩 Crée ta propre figurine de toi poop</h1>
-        <p class="price-tag">Prix unique : 5 €</p>
+        <p class="price-tag">Prix : 5 €</p>
         
-        <img src="https://raw.githubusercontent.com/aaronrmaaron-cmyk/Xhj/main/file_0000000001a872439b9960bed3657a20.jpg" alt="Exemple figurine poop" class="promo-image">
+        <img src="https://raw.githubusercontent.com/aaronrmaaron-cmyk/Xhj/main/file_0000000001a872439b9960bed3657a20.jpg" alt="Figurine Poop Art" class="promo-image">
 
         <div class="tuto-detail">
-            <h3 style="margin-top:0; color:var(--main-color);">📖 COMMENT FAIRE :</h3>
-            <div class="tuto-step"><b>1. La Photo :</b> Prends-toi en photo avec ton téléphone.</div>
-            <div class="tuto-step"><b>2. ChatGPT :</b> Va sur ChatGPT, envoie ta photo et demande : <i>"Transforme-moi en figurine personnalisée"</i>.</div>
-            <div class="tuto-step"><b>3. Ton Lien :</b> ChatGPT te donne une image. Copie son lien.</div>
-            <div class="tuto-step"><b>4. Envoi :</b> Colle le lien ci-dessous avec tes infos.</div>
+            <h3 style="margin-top:0; color:var(--main-color);">📖 GUIDE :</h3>
+            <div class="tuto-step"><b>1. Photo :</b> Prends une photo de toi.</div>
+            <div class="tuto-step"><b>2. ChatGPT :</b> Demande-lui : <i>"Transforme-moi en figurine"</i>.</div>
+            <div class="tuto-step"><b>3. Envoi :</b> Colle le lien de l'image ci-dessous.</div>
         </div>
 
         <form id="my-form" action="https://formspree.io/f/xjgakkba" method="POST">
-            <label>👤 Nom & Prénom</label>
-            <input type="text" name="Nom" required placeholder="Ex: Aaron RMAARON">
+            <label>👤 Nom & Prénom de l'acheteur</label>
+            <input type="text" name="Nom_Acheteur" required>
+            
             <label>📧 Ton Email</label>
-            <input type="email" name="Email" required placeholder="Pour recevoir ton paiement BoursoBank">
+            <input type="email" name="Email" required>
+            
             <label>📸 Lien de ton image ChatGPT</label>
-            <input type="url" name="Lien_Image" required placeholder="https:// ...">
+            <input type="url" name="Lien_Image" required>
+            
             <label>🏠 Adresse de Livraison</label>
-            <input type="text" name="Adresse" required placeholder="Rue, Ville, Code Postal">
-            <label>📱 Téléphone (optionnel)</label>
-            <input type="tel" name="Telephone">
+            <input type="text" name="Adresse" required>
+            
             <button type="submit" id="submit-btn">Commander ma figurine (5 €)</button>
         </form>
     </div>
 
     <div class="container" id="success-screen">
-        <h1 style="color: var(--main-color);">Demande envoyée !</h1>
-        <p>Ta demande a bien été transmise à Aaron.</p>
-        <p><b>Surveille bien tes emails !</b> Tu vas recevoir les infos de paiement BoursoBank et la livraison sera lancée.</p>
+        <div class="mail-icon">📬</div>
+        <h1 style="color: #ff8a65;">Demande envoyée !</h1>
+        <p>Ta demande a bien été transmise au propriétaire.</p>
+        <p><b>Les informations de paiement (BoursoBank) et de livraison seront envoyées directement sur ton adresse email.</b></p>
+        <p>Une fois ta photo validée, tu recevras le lien pour régler les 5 €.</p>
+        <div style="background: #0d47a1; padding: 10px; border-radius: 5px; margin-top: 20px;">Surveille bien tes emails !</div>
     </div>
 
     <script>
@@ -72,7 +74,7 @@
           event.preventDefault();
           var status = document.getElementById("submit-btn");
           var data = new FormData(event.target);
-          status.innerHTML = "Envoi en cours...";
+          status.innerHTML = "Envoi...";
           fetch(event.target.action, {
             method: form.method,
             body: data,
@@ -82,7 +84,7 @@
               document.getElementById('main-form').style.display = 'none';
               document.getElementById('success-screen').style.display = 'block';
             } else {
-              alert("Erreur lors de l'envoi. Recommence.");
+              alert("Erreur. Recommence.");
               status.innerHTML = "Commander ma figurine (5 €)";
             }
           });
