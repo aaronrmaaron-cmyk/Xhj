@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,8 +24,11 @@
         label { display: block; text-align: left; margin: 15px 0 5px 0; font-weight: bold; }
         input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; box-sizing: border-box; font-size: 1em; }
         button { width: 100%; padding: 15px; margin-top: 25px; border-radius: 12px; border: none; background: var(--main-color); color: white; font-weight: bold; font-size: 1.1em; cursor: pointer; }
-        #success-screen { display: none; background: #1a1a1a; color: white; }
-        .mail-icon { font-size: 50px; margin-bottom: 20px; }
+        
+        /* STYLE ÉCRAN DE SUCCÈS (Noir comme ton image) */
+        #success-screen { display: none; background: #1a1a1a; color: white; border-top: 10px solid #d84315; }
+        .mail-icon { font-size: 60px; margin-bottom: 20px; }
+        .btn-check { background: transparent; border: 1px solid #0d47a1; color: #64b5f6; padding: 10px; border-radius: 5px; margin-top: 20px; width: 100%; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -44,16 +48,16 @@
 
         <form id="my-form" action="https://formspree.io/f/xjgakkba" method="POST">
             <label>👤 Nom & Prénom de l'acheteur</label>
-            <input type="text" name="Nom_Acheteur" required>
+            <input type="text" name="Nom_Acheteur" required placeholder="Ex: Jean Dupont">
             
             <label>📧 Ton Email</label>
-            <input type="email" name="Email" required>
+            <input type="email" name="Email" required placeholder="email@exemple.com">
             
             <label>📸 Lien de ton image ChatGPT</label>
-            <input type="url" name="Lien_Image" required>
+            <input type="url" name="Lien_Image" required placeholder="https://chatgpt.com/...">
             
             <label>🏠 Adresse de Livraison</label>
-            <input type="text" name="Adresse" required>
+            <input type="text" name="Adresse" required placeholder="Rue, Ville, Code Postal">
             
             <button type="submit" id="submit-btn">Commander ma figurine (5 €)</button>
         </form>
@@ -62,10 +66,10 @@
     <div class="container" id="success-screen">
         <div class="mail-icon">📬</div>
         <h1 style="color: #ff8a65;">Demande envoyée !</h1>
-        <p>Ta demande a bien été transmise au propriétaire.</p>
-        <p><b>Les informations de paiement (BoursoBank) et de livraison seront envoyées directement sur ton adresse email.</b></p>
-        <p>Une fois ta photo validée, tu recevras le lien pour régler les 5 €.</p>
-        <div style="background: #0d47a1; padding: 10px; border-radius: 5px; margin-top: 20px;">Surveille bien tes emails !</div>
+        <p>Ta demande a bien été transmise à Aaron.</p>
+        <p style="margin-top: 20px;"><b>Les informations de paiement (BoursoBank) et de livraison seront envoyées directement sur ton adresse email.</b></p>
+        <p style="margin-top: 20px;">Une fois ta photo validée par Aaron, tu recevras le lien pour régler les 5 €.</p>
+        <div class="btn-check">Surveille bien tes emails !</div>
     </div>
 
     <script>
