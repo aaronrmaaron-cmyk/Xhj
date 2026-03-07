@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+    <meta name="google-site-verification" content="wtU5WV-Z6hfrwpa1gj1rl78zFkwPNlo37OyVQlVs-Z8" />
+
+    <title>Poop Art Officiel par Aaron - Création 5€</title>
+
+    <meta name="description" content="Commandez votre Poop Art personnalisé avec Aaron. 5€ seulement, paiement BoursoBank après validation par email.">
+
+    <meta name="keywords" content="Poop Art, Aaron, Poop-toi, ChatGPT Art, BoursoBank">
+
+    <style>
+
+        :root { --main-color: #8B4513; --bg-color: #fdf2e9; }
+
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-color); color: #5d4037; margin: 0; padding: 20px; text-align: center; }
+
+        .container { max-width: 550px; margin: auto; background: white; padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 10px solid var(--main-color); }
+
+        .tuto-detail { text-align: left; background: #efebe9; padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 6px solid var(--main-color); }
+
+        .tuto-step { margin-bottom: 12px; font-size: 0.95em; line-height: 1.5; border-bottom: 1px dotted #ccc; padding-bottom: 8px; }
+
+        .tuto-step:last-child { border: none; }
+
+        label { display: block; text-align: left; margin: 15px 0 5px 0; font-weight: bold; font-size: 0.9em; }
+
+        input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; box-sizing: border-box; font-size: 1em; background: #fafafa; }
+
+        button { width: 100%; padding: 15px; margin-top: 25px; border-radius: 12px; border: none; background: var(--main-color); color: white; font-weight: bold; font-size: 1.1em; cursor: pointer; transition: 0.3s; }
+
+        button:hover { background: #5D2E0A; transform: translateY(-2px); }
+
+        #success-screen { display: none; }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container" id="main-form">
+
+        <h1>💩 Commande Poop Art</h1>
+
+        <p style="font-size: 1.2em; font-weight: bold;">Prix : 5 €</p>
+
+        
+
+        <div class="tuto-detail">
+
+            <h3 style="margin-top:0; color:var(--main-color);">📖 GUIDE DE CRÉATION :</h3>
+
+            <div class="tuto-step"><b>1. La Photo :</b> Prends-toi en photo avec ton téléphone.</div>
+
+            <div class="tuto-step"><b>2. ChatGPT :</b> Va sur ChatGPT, envoie ta photo et demande : <i>"Transforme-moi en Poop Art"</i>.</div>
+
+            <div class="tuto-step"><b>3. Lien Image :</b> Clique sur l'image dans ChatGPT, puis en haut à droite, choisis <b>"Copier l'URL"</b>.</div>
+
+            <div class="tuto-step"><b>4. Formulaire :</b> Colle le lien ci-dessous avec ton adresse exacte (Rue, Ville, CP) et ton téléphone.</div>
+
+        </div>
+
+        <form id="my-form" action="https://formspree.io/f/xjgakkba" method="POST">
+
+            <label>👤 Nom & Prénom</label>
+
+            <input type="text" name="Nom" placeholder="Ton nom complet" required>
+
+            <label>📧 Ton Email</label>
+
+            <input type="email" name="Email" placeholder="Pour recevoir ma réponse" required>
+
+            <label>📸 URL de ton image ChatGPT</label>
+
+            <input type="url" name="Lien_Image" placeholder="Colle le lien copié sur ChatGPT" required>
+
+            <label>🏠 Adresse de Livraison</label>
+
+            <input type="text" name="Adresse" placeholder="N° et rue" required style="margin-bottom:8px;">
+
+            <input type="text" name="Ville_CP" placeholder="Code Postal et Ville" required>
+
+            <label>📱 Téléphone</label>
+
+            <input type="tel" name="Telephone" placeholder="Ton numéro" required>
+
+            <button type="submit" id="submit-btn">Valider ma commande (5 €)</button>
+
+        </form>
+
+    </div>
+
+    <div class="container" id="success-screen">
+
+        <h1 style="color: var(--main-color);">Demande envoyée !</h1>
+
+        <div style="font-size: 50px; margin: 20px 0;">📬</div>
+
+        <p style="font-size: 1.1em; line-height: 1.6;">
+
+            Ta demande a bien été transmise à Aaron.<br><br>
+
+            <b>Les informations concernant le paiement BoursoBank et la livraison seront envoyées sur ton adresse email.</b><br><br>
+
+            Dès qu'Aaron aura validé ta photo, tu recevras le message pour régler les 5 €.
+
+        </p>
+
+    </div>
+
+    <script>
+
+        var form = document.getElementById("my-form");
+
+        async function handleSubmit(event) {
+
+          event.preventDefault();
+
+          var status = document.getElementById("submit-btn");
+
+          var data = new FormData(event.target);
+
+          status.innerHTML = "Envoi en cours...";
+
+          fetch(event.target.action, {
+
+            method: form.method,
+
+            body: data,
+
+            headers: { 'Accept': 'application/json' }
+
+          }).then(response => {
+
+            if (response.ok) {
+
+              document.getElementById('main-form').style.display = 'none';
+
+              document.getElementById('success-screen').style.display = 'block';
+
+              window.scrollTo(0,0);
+
+            } else {
+
+              alert("Erreur. Recommence.");
+
+              status.innerHTML = "Valider ma commande (5 €)";
+
+            }
+
+          }).catch(error => {
+
+            alert("Erreur de connexion.");
+
+            status.innerHTML = "Valider ma commande (5 €)";
+
+          });
+
+        }
+
+        form.addEventListener("submit", handleSubmit)
+
+    </script>
+
+</body>
+
+</html>
+    
+  </body>
+  
+</html>
