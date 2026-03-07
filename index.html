@@ -6,9 +6,8 @@
     
     <meta name="google-site-verification" content="wtU5WV-Z6hfrwpa1gj1rl78zFkwPNlo37OyVQlVs-Z8" />
 
-    <title>Poop Art Officiel par Aaron - Création 5€</title>
-    <meta name="description" content="Commandez votre Poop Art personnalisé avec Aaron. 5€ seulement, paiement BoursoBank après validation par email.">
-    <meta name="keywords" content="Poop Art, Aaron, Poop-toi, ChatGPT Art, BoursoBank">
+    <title>Crée ta propre poop - 5€ seulement</title>
+    <meta name="description" content="Transforme tes photos en Poop Art avec Aaron. Crée ta propre poop pour seulement 5€ !">
 
     <style>
         :root { --main-color: #8B4513; --bg-color: #fdf2e9; }
@@ -27,7 +26,7 @@
 <body>
 
     <div class="container" id="main-form">
-        <h1>💩 Commande Poop Art</h1>
+        <h1>💩 Crée ta propre poop</h1>
         <p style="font-size: 1.2em; font-weight: bold;">Prix : 5 €</p>
         
         <div class="tuto-detail">
@@ -59,8 +58,7 @@
         <div style="font-size: 50px; margin: 20px 0;">📬</div>
         <p style="font-size: 1.1em; line-height: 1.6;">
             Ta demande a bien été transmise à Aaron.<br><br>
-            <b>Les informations concernant le paiement BoursoBank et la livraison seront envoyées directement sur ton adresse email.</b><br><br>
-            Dès qu'Aaron aura validé ta photo, tu recevras le message pour régler les 5 €.
+            <b>Toutes les informations concernant le paiement BoursoBank et la livraison seront envoyées directement sur ton adresse email.</b>
         </p>
     </div>
 
@@ -71,6 +69,7 @@
           var status = document.getElementById("submit-btn");
           var data = new FormData(event.target);
           status.innerHTML = "Envoi en cours...";
+          
           fetch(event.target.action, {
             method: form.method,
             body: data,
