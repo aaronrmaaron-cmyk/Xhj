@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/aaronrmaaron-cmyk/Xhj/main/file_0000000001a872439b9960bed3657a20.jpg">
-
     <meta name="google-site-verification" content="wtU5WV-Z6hfrwpa1gj1rl78zFkwPNlo37OyVQlVs-Z8" />
 
     <title>Crée ta propre figurine de toi pop</title>
@@ -16,14 +15,19 @@
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg-color); color: #ffffff; margin: 0; padding: 20px; text-align: center; }
         .container { max-width: 550px; margin: auto; background: var(--card-bg); padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-top: 10px solid var(--main-color); }
         .promo-image { width: 100%; border-radius: 15px; margin-bottom: 20px; border: 2px solid #333; }
+        
+        /* LE TUTORIEL REVIENT */
         .tuto-detail { text-align: left; background: #2c2c2c; padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 6px solid var(--main-color); }
         .tuto-step { margin-bottom: 12px; font-size: 0.95em; line-height: 1.5; border-bottom: 1px solid #444; padding-bottom: 8px; }
+        
         label { display: block; text-align: left; margin: 15px 0 5px 0; font-weight: bold; color: #bbb; }
         input, select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #444; box-sizing: border-box; background: #2c2c2c; color: white; font-size: 1em; }
-        button { width: 100%; padding: 15px; margin-top: 25px; border-radius: 12px; border: none; background: var(--main-color); color: white; font-weight: bold; cursor: pointer; font-size: 1.1em; }
         
+        .total-box { background: #333; padding: 15px; border-radius: 10px; margin-top: 20px; border: 2px dashed var(--main-color); }
+        #total-price { font-size: 1.5em; color: #ff8a65; font-weight: bold; }
+
+        button { width: 100%; padding: 15px; margin-top: 20px; border-radius: 12px; border: none; background: var(--main-color); color: white; font-weight: bold; cursor: pointer; font-size: 1.1em; }
         #success-screen { display: none; background: #1a1a1a; color: white; border-top: 10px solid #d84315; }
-        .mail-icon { font-size: 60px; margin-bottom: 20px; }
         .btn-check { border: 1px solid #0d47a1; color: #64b5f6; padding: 10px; border-radius: 5px; margin-top: 20px; width: 100%; font-weight: bold; display: block; text-decoration: none; }
     </style>
 </head>
@@ -33,7 +37,7 @@
         <h1>Crée ta propre figurine de toi pop</h1>
         
         <img src="https://raw.githubusercontent.com/aaronrmaaron-cmyk/Xhj/main/file_0000000001a872439b9960bed3657a20.jpg" alt="Figurine Pop" class="promo-image">
-        
+
         <div class="tuto-detail">
             <h3 style="margin-top:0; color:var(--main-color);">📖 GUIDE :</h3>
             <div class="tuto-step"><b>1. La Photo :</b> Prends-toi en photo.</div>
@@ -51,12 +55,19 @@
             <label>📱 Ton Numéro de Téléphone</label>
             <input type="tel" name="Telephone" required placeholder="06 00 00 00 00">
 
-            <label>🎨 Couleur et Prix de la figurine</label>
-            <select name="Couleur_Figurine" required>
-                <option value="" disabled selected>Choisissez une option...</option>
-                <option value="Gris (5€)">Gris — 5 €</option>
-                <option value="Arc-en-ciel (8€)">Arc-en-ciel — 8 €</option>
-                <option value="Deja peinte (10€)">Déjà peinte (Comme vous voulez) — 10 €</option>
+            <label>🎨 Couleur de la figurine</label>
+            <select name="Couleur" id="couleur" required onchange="calculerTotal()">
+                <option value="5" selected>Gris — 5 €</option>
+                <option value="8">Arc-en-ciel — 8 €</option>
+                <option value="10">Déjà peinte — 10 €</option>
+            </select>
+
+            <label>📏 Taille de la pop</label>
+            <select name="Taille" id="taille" required onchange="calculerTotal()">
+                <option value="0" selected>Taille Normale (10cm) — Gratuit</option>
+                <option value="2">Taille Grande (15cm) — +2 €</option>
+                <option value="4">Taille XL (20cm) — +4 €</option>
+                <option value="8">Taille XXL (25cm) — +8 €</option>
             </select>
             
             <label>📸 Lien de l'image ChatGPT</label>
@@ -64,21 +75,33 @@
             
             <label>🏠 Adresse de Livraison</label>
             <input type="text" name="Adresse" required placeholder="Rue, Ville, Code Postal">
+
+            <div class="total-box">
+                Total à régler : <span id="total-price">5</span> €
+                <input type="hidden" name="Prix_Total" id="hidden-total" value="5€">
+            </div>
             
             <button type="submit" id="submit-btn">Commander ma figurine</button>
         </form>
     </div>
 
     <div class="container" id="success-screen">
-        <div class="mail-icon">📬</div>
+        <div style="font-size: 60px; margin-bottom: 20px;">📬</div>
         <h1 style="color: #ff8a65;">Demande envoyée !</h1>
         <p>Ta demande a bien été transmise à Aaron.</p>
         <p style="margin-top: 20px;"><b>Les informations de paiement (BoursoBank) et de livraison seront envoyées directement sur ton adresse email.</b></p>
-        <p style="margin-top: 20px;">Une fois ta photo validée par Aaron, tu recevras le lien pour régler le montant correspondant.</p>
         <div class="btn-check">Surveille bien tes emails !</div>
     </div>
 
     <script>
+        function calculerTotal() {
+            var prixCouleur = parseInt(document.getElementById('couleur').value);
+            var prixTaille = parseInt(document.getElementById('taille').value);
+            var total = prixCouleur + prixTaille;
+            document.getElementById('total-price').innerHTML = total;
+            document.getElementById('hidden-total').value = total + "€";
+        }
+
         var form = document.getElementById("my-form");
         async function handleSubmit(event) {
           event.preventDefault();
