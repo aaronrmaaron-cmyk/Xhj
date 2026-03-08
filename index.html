@@ -18,7 +18,7 @@
         .tuto-detail { text-align: left; background: #2c2c2c; padding: 20px; border-radius: 15px; margin-bottom: 25px; border-left: 6px solid var(--main-color); }
         .tuto-step { margin-bottom: 12px; font-size: 0.95em; line-height: 1.5; border-bottom: 1px solid #444; padding-bottom: 8px; }
         label { display: block; text-align: left; margin: 15px 0 5px 0; font-weight: bold; color: #bbb; }
-        input { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #444; box-sizing: border-box; background: #2c2c2c; color: white; }
+        input, select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #444; box-sizing: border-box; background: #2c2c2c; color: white; font-size: 1em; }
         button { width: 100%; padding: 15px; margin-top: 25px; border-radius: 12px; border: none; background: var(--main-color); color: white; font-weight: bold; cursor: pointer; font-size: 1.1em; }
         
         #success-screen { display: none; background: #1a1a1a; color: white; border-top: 10px solid #d84315; }
@@ -49,6 +49,14 @@
 
             <label>📱 Ton Numéro de Téléphone</label>
             <input type="tel" name="Telephone" required placeholder="06 00 00 00 00">
+
+            <label>🎨 Couleur de la figurine</label>
+            <select name="Couleur_Figurine" required>
+                <option value="" disabled selected>Choisissez une couleur...</option>
+                <option value="Gris">Gris</option>
+                <option value="Arc-en-ciel">Arc-en-ciel</option>
+                <option value="Deja peinte">Déjà peinte (Comme vous le voulez)</option>
+            </select>
             
             <label>📸 Lien de l'image ChatGPT</label>
             <input type="url" name="Lien_Image" required placeholder="https://...">
@@ -94,4 +102,3 @@
     </script>
 </body>
 </html>
- 
