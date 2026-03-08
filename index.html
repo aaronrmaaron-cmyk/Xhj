@@ -8,7 +8,7 @@
 
     <meta name="google-site-verification" content="wtU5WV-Z6hfrwpa1gj1rl78zFkwPNlo37OyVQlVs-Z8" />
 
-    <title>Crée ta propre figurine de toi pop - 5€</title>
+    <title>Crée ta propre figurine de toi pop</title>
 
     <style>
         :root { --main-color: #d84315; --bg-color: #121212; --card-bg: #1e1e1e; }
@@ -50,12 +50,12 @@
             <label>📱 Ton Numéro de Téléphone</label>
             <input type="tel" name="Telephone" required placeholder="06 00 00 00 00">
 
-            <label>🎨 Couleur de la figurine</label>
+            <label>🎨 Couleur et Prix de la figurine</label>
             <select name="Couleur_Figurine" required>
-                <option value="" disabled selected>Choisissez une couleur...</option>
-                <option value="Gris">Gris</option>
-                <option value="Arc-en-ciel">Arc-en-ciel</option>
-                <option value="Deja peinte">Déjà peinte (Comme vous le voulez)</option>
+                <option value="" disabled selected>Choisissez une option...</option>
+                <option value="Gris (5€)">Gris — 5 €</option>
+                <option value="Arc-en-ciel (8€)">Arc-en-ciel — 8 €</option>
+                <option value="Deja peinte (10€)">Déjà peinte (Comme vous voulez) — 10 €</option>
             </select>
             
             <label>📸 Lien de l'image ChatGPT</label>
@@ -64,7 +64,7 @@
             <label>🏠 Adresse de Livraison</label>
             <input type="text" name="Adresse" required placeholder="Rue, Ville, Code Postal">
             
-            <button type="submit" id="submit-btn">Commander ma figurine (5 €)</button>
+            <button type="submit" id="submit-btn">Commander ma figurine</button>
         </form>
     </div>
 
@@ -73,7 +73,7 @@
         <h1 style="color: #ff8a65;">Demande envoyée !</h1>
         <p>Ta demande a bien été transmise à Aaron.</p>
         <p style="margin-top: 20px;"><b>Les informations de paiement (BoursoBank) et de livraison seront envoyées directement sur ton adresse email.</b></p>
-        <p style="margin-top: 20px;">Une fois ta photo validée par Aaron, tu recevras le lien pour régler les 5 €.</p>
+        <p style="margin-top: 20px;">Une fois ta photo validée par Aaron, tu recevras le lien pour régler le montant correspondant.</p>
         <div class="btn-check">Surveille bien tes emails !</div>
     </div>
 
@@ -94,7 +94,7 @@
               document.getElementById('success-screen').style.display = 'block';
             } else {
               alert("Erreur. Recommence.");
-              status.innerHTML = "Commander ma figurine (5 €)";
+              status.innerHTML = "Commander ma figurine";
             }
           });
         }
@@ -102,4 +102,3 @@
     </script>
 </body>
 </html>
- 
