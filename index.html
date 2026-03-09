@@ -8,30 +8,28 @@
     <style>
         :root { --main-color: #d84315; --bg-color: #121212; --card-bg: #1e1e1e; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg-color); color: #ffffff; margin: 0; padding: 20px; text-align: center; }
-        .container { max-width: 500px; margin: auto; background: var(--card-bg); padding: 30px; border-radius: 40px; border-top: 10px solid var(--main-color); box-shadow: 0 10px 40px rgba(0,0,0,0.6); position: relative; animation: fadeIn 0.8s ease; }
-        
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .container { max-width: 500px; margin: auto; background: var(--card-bg); padding: 30px; border-radius: 40px; border-top: 10px solid var(--main-color); box-shadow: 0 10px 40px rgba(0,0,0,0.6); position: relative; }
         
         .promo-image { width: 120px; border-radius: 50%; margin-bottom: 20px; border: 3px solid var(--main-color); }
-        .controls { position: absolute; top: 20px; right: 25px; display: flex; gap: 12px; }
-        .btn-icon { cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #444; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
+        
+        /* BARRE DE BOUTONS EN HAUT */
+        .controls { position: absolute; top: 20px; right: 20px; display: flex; gap: 8px; align-items: center; }
+        .btn-icon { cursor: pointer; background: rgba(255,255,255,0.1); border: 1px solid #444; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1em; }
+        .btn-vinted { background: #009ea9; border: none; color: white; padding: 5px 12px; border-radius: 20px; font-weight: bold; font-size: 0.8em; text-decoration: none; }
 
         .tuto-detail { text-align: left; background: #2c2c2c; padding: 20px; border-radius: 20px; margin-bottom: 25px; border-left: 6px solid var(--main-color); }
         .tuto-step { margin-bottom: 12px; font-size: 1em; border-bottom: 1px solid #444; padding-bottom: 8px; }
 
         label { display: block; text-align: left; margin: 15px 0 5px 10px; font-weight: bold; color: #bbb; }
-        input, select { width: 100%; padding: 15px; border-radius: 15px; border: none; background: #e8f0fe; color: #333; font-size: 1.1em; box-sizing: border-box; font-weight: 500; }
+        input, select { width: 100%; padding: 15px; border-radius: 15px; border: none; background: #e8f0fe; color: #333; font-size: 1.1em; box-sizing: border-box; }
 
         .total-box { background: transparent; padding: 15px; border-radius: 15px; margin-top: 25px; border: 2px dashed var(--main-color); font-size: 1.3em; font-weight: bold; }
         #total-price { color: #ff8a65; }
 
-        .btn-order { width: 100%; padding: 20px; margin-top: 25px; border-radius: 20px; border: none; background: var(--main-color); color: white; font-weight: bold; cursor: pointer; font-size: 1.3em; transition: 0.3s; box-shadow: 0 0 15px rgba(216, 67, 21, 0.4); }
-        .btn-order:hover { transform: scale(1.02); background: #f4511e; box-shadow: 0 0 25px rgba(216, 67, 21, 0.7); }
+        .btn-order { width: 100%; padding: 20px; margin-top: 25px; border-radius: 20px; border: none; background: var(--main-color); color: white; font-weight: bold; cursor: pointer; font-size: 1.3em; box-shadow: 0 0 15px rgba(216, 67, 21, 0.4); }
 
-        /* ÉCRAN DE SUCCÈS - PILE COMME TA PHOTO */
         #success-screen { display: none; }
         .mailbox { width: 100px; margin: 25px 0; }
-        .success-text { line-height: 1.6; margin: 20px 0; font-size: 1.1em; }
         .blue-btn { border: 2px solid #0d47a1; color: #64b5f6; padding: 15px; border-radius: 15px; margin-top: 30px; font-weight: bold; background: rgba(13, 71, 161, 0.1); display: block; }
     </style>
 </head>
@@ -41,6 +39,7 @@
 
     <div class="container" id="form-ui">
         <div class="controls">
+            <a href="https://www.vinted.fr/member/313551543-3dfigurin" target="_blank" class="btn-vinted">Vinted</a>
             <div class="btn-icon" onclick="toggleLang()">🌍</div>
             <div class="btn-icon" onclick="toggleMusic()">🎵</div>
         </div>
@@ -57,38 +56,40 @@
 
         <form id="order-form" onmousedown="startMusic()">
             <input type="hidden" name="access_key" value="56ae15e4-d8db-457f-bb32-5b380f08a9ca">
+            <input type="hidden" name="subject" value="NOUVELLE COMMANDE POP">
 
             <label id="l-nom">👤 Nom & Prénom</label>
-            <input type="text" name="nom" required placeholder="Aaronrm Aaron">
+            <input type="text" name="Client_Nom" required>
 
             <label id="l-email">📧 Ton Email</label>
-            <input type="email" name="email" required placeholder="aaron@gmail.com">
+            <input type="email" name="Client_Email" required>
 
             <label id="l-tel">📱 Ton Numéro</label>
-            <input type="tel" name="tel" required placeholder="06XXXXXXXX">
+            <input type="tel" name="Client_Tel" required>
 
             <label id="l-couleur">🎨 Couleur de la figurine</label>
-            <select name="couleur" id="couleur" onchange="upd()">
+            <select name="Option_Couleur" id="couleur" onchange="upd()">
                 <option value="5">Gris — 5 €</option>
                 <option value="8">Arc-en-ciel — 8 €</option>
                 <option value="12">Déjà peinte — 12 €</option>
             </select>
 
             <label id="l-taille">📏 Taille de la pop</label>
-            <select name="taille" id="taille" onchange="upd()">
+            <select name="Option_Taille" id="taille" onchange="upd()">
                 <option value="0">Taille Normale (10cm) — Gratuit</option>
                 <option value="4">Taille XL (20cm) — +4 €</option>
                 <option value="8">Taille XXL (25cm) — +8 €</option>
             </select>
 
-            <label id="l-image">📸 Lien de l'image ChatGPT</label>
-            <input type="url" name="lien_image" required placeholder="https://...">
+            <label id="l-image">📸 Lien image ChatGPT</label>
+            <input type="url" name="Lien_Image_Robot" required>
 
             <label id="l-adresse">🏠 Adresse de Livraison</label>
-            <input type="text" name="adresse" required placeholder="Ta ville, ta rue...">
+            <input type="text" name="Client_Adresse" required>
 
             <div class="total-box">
                 <span id="t-total">Total à régler :</span> <span id="total-price">5</span> €
+                <input type="hidden" name="PRIX_A_PAYER" id="hidden-price" value="5 €">
             </div>
 
             <button type="submit" class="btn-order" id="t-btn">Commander ma figurine</button>
@@ -98,14 +99,12 @@
     <div class="container" id="success-screen">
         <h1 id="t-sent" style="color: #ff8a65; font-size: 2.5em;">Demande envoyée !</h1>
         <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" class="mailbox">
-        
-        <div class="success-text">
+        <div style="text-align: left; line-height: 1.6;">
             <p id="t-m1">Ta demande a bien été transmise à Aaron.</p>
             <p id="t-m2"><b>Les informations de paiement (BoursoBank) et de livraison seront envoyées directement sur ton adresse email.</b></p>
             <p id="t-m3">Une fois ta photo validée par Aaron, tu recevras le lien pour régler les <span id="final-p">5</span> €.</p>
         </div>
-
-        <div class="blue-btn" id="t-m4">Surveille bien tes emails !</div>
+        <div class="blue-btn">Surveille bien tes emails !</div>
     </div>
 
     <script>
@@ -121,19 +120,18 @@
             document.getElementById('t-title').innerText = isEnglish ? "Create your own Pop" : "Crée ta propre figurine de toi pop";
             document.getElementById('t-btn').innerText = isEnglish ? "Order now" : "Commander ma figurine";
             document.getElementById('t-total').innerText = isEnglish ? "Total price:" : "Total à régler :";
-            document.getElementById('t-sent').innerText = isEnglish ? "Request sent!" : "Demande envoyée !";
         }
 
         function upd() {
             var total = parseInt(document.getElementById('couleur').value) + parseInt(document.getElementById('taille').value);
             document.getElementById('total-price').innerText = total;
+            document.getElementById('hidden-price').value = total + " €";
         }
 
         const form = document.getElementById('order-form');
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             document.getElementById("t-btn").innerText = "...";
-            
             fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
